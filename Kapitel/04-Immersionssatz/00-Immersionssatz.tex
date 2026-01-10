@@ -1,0 +1,151 @@
+Im folgenden Abschnitt wollen wir den Immersionssatz beweisen. Dieser garantiert, dass eine differenzierbare Funktion \({\mathcal{M}\to\mathbb{R}^n}\) f\"ur hinreichend gro\ss es \({n}\) beliebig gut durch eine Immersion approximieren l\"asst. Dieses Ergebnis wird sp\"ater noch weiter verfeinert werden.
+
+Sei \({\norm{\mathrel{\cdot}}_1}\) die Summennorm auf dem \({\mathbb{R}^n}\), \({U\subset\mathbb{R}^m}\) offen, und \({H\in\mathcal{C}\left(U,\mathbb{R}^n\right)}\). Im Folgenden wollen wir den Raum \({\mathcal{C}\left(U,\mathbb{R}^n\right)}\) mit einer Topologie versehen. Sei hierzu
+\[\norm{H}_C:=\max_{p\in C}\left(\norm{H(p)}_1\right)\]
+die Supremumsnorm auf der kompakten Menge \({C\subset U}\), und weiter
+\[\norm{H}:=\norm{H}_C+\sum_{j=1}^m\norm{\frac{\partial H}{\partial x_j}}_C\,.\]
+Dies definiert keine Norm auf \({\mathcal{C}\left(U,\mathbb{R}^n\right)}\), da \({H}\) lediglich auf \({C}\) betrachtet wird, nicht jedoch \({U\setminus C}\). Demnach folgt aus \({\norm{H}=0}\) nicht dringend \({H=0}\). Dennoch induziert diese Seminorm eine Topologie, welche wir im Weiteren betrachten wollen. Es sei angemerkt, dass bei der Definition dieser Seminorm lediglich die erste Ableitung in das Ergebnis einflie\ss t. Zwar ist es m\"oglich dies zu verallgemeinern indem alle Supremumsnormen partieller Ableitungen vom Grad \({\leq k}\) aufsummiert werden, jedoch ist dies f\"ur den schwachen Einbettungssatz nicht vonn\"oten - Lediglich die erste Ableitung muss sich einigerma\ss en friedlich verhalten. 
+
+\begin{theorem}[Die Menge der regul\"aren Funktionen ist offen]
+\label{thm:imm_thm:reg_open}
+    Sei \({m\leq n}\), \({U\subset\mathbb{R}^m}\) offen und \({K\subset U}\) kompakt, so ist die Menge der in \({K}\) regul\"aren Funktionen offen in \({\mathcal{C}\left(U,\mathbb{R}^n\right)}\).
+\end{theorem}
+\begin{proof}
+    Sei \({\mathbf{x}\in\mathbb{R}^m}\). Unter der zuvor definierten Seminorm ist die Abbildung
+    \[\Phi\colon C^k\left(U,\mathbb{R}^n\right)\to\mathbb{R}^{n\times m},\,F\mapsto J_{\mathbf{x}}F\]
+    stetig. Sei hierzu der \({\mathbb{R}^{n\times m}}\) mit der Spaltensummennorm versehen. Dies mag beliebig wirken, ist jedoch dadurch gerechtfertigt, dass alle Normen auf einem endlichdimensionalen reellen Vektorraum \"aquivalent sind. Sei weiter \({0<\delta\leq\epsilon}\) und \({\norm{F-G}<\delta}\). Es folgt
+    \begin{align*}
+        \norm{J_{\mathbf{x}}(F-G)}_1&=\max_{1\leq j\leq m}\norm{\frac{\partial(F-G)}{\partial x_j}(\mathbf{x})}_1\\
+        &\leq\max_{1\leq j\leq m}\norm{\frac{\partial(F-G)}{\partial x_j}}_K\\
+        &<\norm{F-G}<\delta<\epsilon
+    \end{align*}
+    und aus dem \({\epsilon}\)-\({\delta}\)-Kriterium die Stetigkeit der Abbildung \({H\mapsto J_{\mathbf{x}}H}\). Dieses gilt weiterhin, da die Topologie mittels der Seminorm definiert wurde. Wir betrachten weiter die stetige Abbildung
+    \[\Psi\colon\mathbb{R}^{n\times m}\to\mathbb{R},\,A\mapsto\sum_{\genfrac{}{}{0pt}{}{B\,\text{ist}\,m\times m}{\genfrac{}{}{0pt}{}{\text{Untermatrix}}{\text{von}\,A}}}\abs{\det\left(B\right)}\,.\]
+    Wenn \({A}\) den Rang \({m}\) besitzt, so existiert bekannterma\ss en eine invertierbare \({m\times m}\) Untermatrix vom \({A}\). Somit gilt \({\Psi(A)\not=0}\). Aufgrund der Stetigkeit ist nun
+    \[\Psi^{-1}\left(\mathbb{R}\setminus\{0\}\right)=\left\{B\in\mathbb{R}^{n\times m}\colon\text{rang}(B)=m\right\}=:B^{\prime}\]
+    offen, sodass auch 
+    \[\Phi^{-1}\left(B^{\prime}\right)=\left\{F\in\mathcal{C}^k\left(U,\mathbb{R}^n\right)\colon\text{rang}(F)=m\right\}\]
+    offen ist.
+\end{proof}
+
+Der Beweis des Faktes, dass die Menge der Matrizen mit vollem Rang offen ist, wurde \cite{test} entnommen.
+
+\begin{theorem}
+\label{thm:imm_thm:reg_dense}
+    Sei \({U\subset\mathbb{R}^n}\) offen und \({K\subset U}\) kompakt, so ist die Menge der in \({K}\) regul\"aren Funktionen dicht in \({\mathcal{C}\left(U,\mathbb{R}^n\right)}\), wenn \({n\geq2m}\).
+\end{theorem}
+\begin{proof}
+    Sei \({F\in\mathcal{C}\left(U,\mathbb{R}^n\right)}\) und \({\epsilon>0}\). Wir konstruieren f\"ur \({1\leq k\leq m}\) Funktionen \({G_k\colon U\to\mathbb{R}^n}\), sodass die ersten \({k}\) Ableitungsvektoren \({\partial G_k/\partial x_j}\) voneinander linear unabh\"angig sind. Per Konstruktion ist dann \({G:=G_m}\) regul\"ar. Sei \({G_0:=F}\), \({G_{k-1}}\) bereits konstruiert und 
+    \begin{equation}
+        \label{eq:imm_thm:reg_dense:1}
+        c:=\max_{\genfrac{}{}{0pt}{}{\mathbf{x}\in C}{1\leq j\leq m}}\abs{x_j}\,.
+    \end{equation}
+    Wir betrachten die Hilfsfunktion
+    \[\Phi_k\colon\mathbb{R}^{k-1}\times U\to\mathbb{R}^n,\binom{\lambda}{\mathbf{x}}\mapsto\sum_{j=1}^{k-1}\lambda_j\frac{\partial G_{k-1}}{\partial x_j}(\mathbf{x})-\frac{\partial F}{\partial x_k}(\mathbf{x})\,,\]
+    dann finden wir mithilfe des Satzes von Sard aufgrund von 
+    \[\text{dim}(\mathbb{R}^k\times U)=k+m-1<2m\leq n\]
+    ein \({\mathbf{a}_k\in\mathbb{R}^n\setminus\text{Bild}(\Phi_k)}\), sodass
+    \begin{equation}
+        \label{eq:imm_thm:reg_dense:2}
+        \norm{\mathbf{a}_k}<\frac{\epsilon}{m\left(c+1\right)}\,.
+    \end{equation}
+    Wir setzen 
+    \[G_k:=G_{k-1}+x_k\cdot\mathbf{a}_k\,,\]
+    dann sind
+    \[\frac{\partial G_k}{\partial x_i}(\mathbf{x})=\frac{\partial G_{k-1}}{\partial x_i}(\mathbf{x})\quad\text{f\"ur}\quad1\leq i<k\quad\text{und}\quad\frac{\partial G_k}{\partial x_k}(\mathbf{x})=\frac{\partial F}{\partial x_k}(\mathbf{x})+\mathbf{a}_k\,.\]
+    Die ersten \({k}\) dieser Vektoren sind nun f\"ur alle \({\mathbf{x}\in U}\) linear unabh\"angig, da sonst
+    \[\sum_{j=1}^{k-1}\lambda_j\frac{\partial G_k}{\partial x_j}(\mathbf{x})=\frac{\partial G_k}{\partial x_k}(\mathbf{x})\quad\Leftrightarrow\quad\sum_{j=1}^{k-1}\lambda_j\frac{\partial G_{k-1}}{\partial x_j}(\mathbf{x})-\frac{\partial F}{\partial x_k}(\mathbf{x})=\mathbf{a}_k\]
+    ein Widerspruch gegen die Definition von \({\mathbf{a}_k}\) w\"are. Letztlich sei \({G:=G_m}\), so ergibt sich die Absch\"atzung
+    \newpage
+    \begin{align*}
+        \norm{G-F}&=\norm{G_m-G_0}=\norm{\sum_{k=1}^mG_k-G_{k-1}}\\
+        &\mathop{\leq}^{\Delta}\sum_{k=1}^m\norm{G_k-G_{k-1}}\mathop{=}^{\text{Def.}}\sum_{k=1}^m\norm{x_k\cdot\mathbf{a}_k}\\
+        &=\sum_{k=1}^m\left(\max_{\mathbf{x}\in C}\abs{x_k}\norm{\mathbf{a}_k}_1+\norm{\mathbf{a}_k}_1\right)\mathop{\leq}^{\eqref{eq:imm_thm:reg_dense:1}}\sum_{k=1}^m\norm{\mathbf{a}_k}\left(c+1\right)\\
+        &\mathop{<}^{\eqref{eq:imm_thm:reg_dense:2}}\frac{1+c}{1+c}\cdot\epsilon\sum_{k=1}^m\frac{1}{m}=\epsilon\,.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Whitneyscher Immersionssatz]
+\label{thm:imm_thm:imm_thm}
+    Sei \({n\geq2m}\), \({\mathcal{M}^m}\) eine differenzierbare Mannigfaltigkeit sowie \({\delta>0}\) und \({F\colon\mathcal{M}\to\mathbb{R}^n}\) regul\"ar in der abgeschlossenen Menge \({A\subseteq\mathcal{M}}\). Dann existiert eine Immersion \({G\colon\mathcal{M}\to\mathbb{R}^n}\) derart, dass \({G|_A=F|_A}\) und f\"ur alle \({p\in\mathcal{M}}\) die Absch\"atzung \({\norm{F(p)-G(p)}<\delta}\) gilt.
+\end{theorem}
+\begin{proof}
+    Da der Rang von \({F}\) lokal nicht fallen kann, existiert eine offene Umgebung \({U\subseteq\mathcal{M}}\) von \({A}\), auf der \({F}\) weiterhin vollen Rang besitzt. Wir betrachten die offene \"Uberdeckung \({\{U,\mathcal{M}\setminus A\}}\) von \({\mathcal{M}}\) und w\"ahlen mithilfe von Satz \ref{thm:part_one:good_atlas:exists:exists} einen untergeordneten guten Atlas \({\left\{\alpha_k\colon B_1\to V_k\right\}}\), sowie eine zugeh\"orige Zerlegung der Eins \({\theta_k\colon\mathcal{M}\to[0,1]}\) gem\"a\ss{} Sektion \ref{sec:part_one:constr_one}.
+    \[K:=\overline{B_{\nicefrac{2}{3}}}\quad,\quad U_k:=\alpha_k\left(B_{\nicefrac{1}{3}}\right)\quad\text{sowie}\quad W_k:=\alpha_k\left(B_{\nicefrac{2}{3}}\right)\,.\]
+    %F\"ur folgende Absch\"atzungen ben\"otigen wir noch 
+    %\[\epsilon_k:=2^{-k}\inf\left\{\delta\left(W_k\right)\right\}\]
+    Wir konstruieren nun f\"ur \({k\geq1}\) eine Folge von Funktionen \({G_k}\) mit folgenden Eigenschaften
+    \begin{align}
+        \label{eq:imm_thm:imm_thm:0}
+        G_k(p)=G_{k-1}(p)\qquad&\forall p\in\mathcal{M}\setminus W_k\\
+        \label{eq:imm_thm:imm_thm:1}
+        G_k\text{ ist regul\"ar in }R_k:=\bigcup_{j=0}^k\overline{U_j}\qquad&\\
+        \label{eq:imm_thm:imm_thm:2}
+        \norm{G_k(p)-G_{k-1}(p)}<\frac{\delta}{2^k}\qquad&\forall p\in\mathcal{M}
+    \end{align} 
+    wobei \({G_0:=F}\) sei. Sei \({G_{k-1}}\) bereits konstruiert, so betrachten wir die Hilfsfunktion
+    \[H_k\colon B_1\to\mathbb{R}^n,\,\mathbf{x}\mapsto\left(G_{k-1}\circ\alpha_k\right)(\mathbf{x})\]
+    die nun aufgrund von Bedingung \ref{eq:imm_thm:imm_thm:1} in der kompakten Menge
+    \[C_k:=\alpha_k^{-1}\left(R_{k-1}\cap\overline{W_k}\right)\subseteq\alpha_k^{-1}\left(\overline{W_k}\right)=\overline{B_{\nicefrac{2}{3}}}=K\]
+    regul\"ar ist. Da gem\"a\ss{} Satz \ref{thm:imm_thm:reg_open} die Menge der in \({C_k}\) regul\"aren Funktionen offen ist, existiert nun ein \({\kappa>0}\) derart, dass aus
+    \begin{equation}
+        \label{eq:imm_thm:imm_thm:kappa}
+        \norm{H_k-P}_C<\kappa\quad\text{folgt, dass \({P}\) regul\"ar ist.}
+    \end{equation}
+    Da au\ss erdem gem\"a\ss{} Satz \ref{thm:imm_thm:reg_dense} die Menge der in \({K}\) regul\"aren Funktionen dicht in \({\mathcal{C}(B_1,\mathbb{R}^n)}\) (versehen mit der zugeh\"origen \({K}\)-Norm) ist, existiert nun au\ss erdem eine Funktion \({Q}\) derart, dass \({Q}\) in \({K}\) regul\"ar ist, und 
+    \begin{equation}
+        \label{eq:imm_thm:imm_thm:zeta}
+        \norm{H_k-Q}_{C_k}\leq\norm{H_k-Q}_K<\zeta:=\min\left\{\kappa,\frac{\delta}{2^k}\right\}
+    \end{equation}
+    gilt. Wir setzen 
+    \[G_k(p):=\begin{cases}
+        G_{k-1}(p)+\theta_k(p)\cdot\left(\left(Q\circ\alpha_k^{-1}\right)(p)-G_{k-1}(p)\right) & p\in V_k\\
+        G_{k-1}(p) & \text{sonst}
+    \end{cases}\,.\]
+    Es verbleibt die Bedingungen \ref{eq:imm_thm:imm_thm:0} - \ref{eq:imm_thm:imm_thm:2} zu zeigen.
+    
+    \subsection*{Bedingung \ref{eq:imm_thm:imm_thm:0})}
+        Aufgrund der disjunkten Zerlegung \({\mathcal{M}\setminus W_k=\left(\mathcal{M}\setminus V_k\right)\cup\left(V_k\setminus W_k\right)}\) ist entweder \({p\in V_k\setminus W_k}\) - also per Definitionem \({\theta(p)=0}\) - oder \({p\in\mathcal{M}\setminus V_k}\). In beiden F\"allen folgt direkt direkt \({G_{k+1}(p)=G_k(p)}\).
+        
+    \subsection*{Bedingung \ref{eq:imm_thm:imm_thm:1})}
+        Aufgrund von Bedingung \ref{eq:imm_thm:imm_thm:0} und der Regularit\"at von \({G_{k-1}}\) besitzt \({G_k}\) bereits vollen Rang auf \({(\mathcal{M}\setminus W_k)\cap R_{k-1}}\). 
+        Weiter gilt die Absch\"atzung
+        \begin{equation}
+            \label{eq:imm_thm:imm_thm:pr_1:0}
+            \begin{aligned}
+                \norm{G_k\circ\alpha_k-G_{k-1}\circ\alpha_k}_C&=\norm{\left(\theta_k\circ\alpha_k\right)\cdot\left(Q-G_{k-1}\circ\alpha_k\right)}_{C_k}\\
+                &=\norm{\left(\theta_k\circ\alpha_k\right)\cdot\left(Q-H_k\right)}_{C_k}\\
+                &\leq\norm{Q-H_k}_{C_k}\\
+                &<\zeta\leq\kappa\,,
+            \end{aligned}
+        \end{equation}
+        sodass \({G_k\circ\alpha_k}\) nach \ref{eq:imm_thm:imm_thm:kappa} regul\"ar in \({C_k}\), und damit \({G_k}\) in \({\alpha_k(C)=W_k\cap R_{k-1}}\) sein muss. Schlie\ss lich gilt per Definitionem auf \({\overline{U_k}}\) noch \({\theta_k=1}\), also ist dort \({G_k=Q\circ\alpha_k^{-1}}\), und \({G_k}\) auch dort regul\"ar. Insgesamt ergibt dies Regularit\"at auf der Vereinigung 
+        \begin{align*}
+            \overbrace{\left((\mathcal{M}\setminus W_k)\cap R_{k-1}\right)}^{\eqref{eq:imm_thm:imm_thm:0}}\cup\overbrace{\left(W_k\cap R_{k-1}\right)}^{\eqref{eq:imm_thm:imm_thm:pr_1:0}}\cup\,\overline{U_k}&=\left(\mathcal{M}\cap R_{k-1}\right)\cup\overline{U_k}\\
+            &=R_{k-1}\cup\overline{U_k}=R_k\,.
+        \end{align*}
+        
+    \subsection*{Bedingung \ref{eq:imm_thm:imm_thm:2})}
+        Ist \({p\in\mathcal{M}\setminus W_k}\), so ist diese Aussage per Definitionem trivial. Sei also \({p\in W_k}\) und \({\mathbf{x}=\alpha^{-1}(p)\in K}\), so gilt
+        \begin{equation}
+            \label{eq:imm_thm:imm_thm:pr_2:0}
+            \begin{aligned}
+                \norm{G_k(p)-G_{k-1}(p)}&=\norm{\theta_k(p)\left(\left(Q\circ\alpha_k^{-1}\right)(p)-G_{k-1}(p)\right)}\\
+                &\leq\norm{\left(Q\circ\alpha_k^{-1}\right)(p)-G_{k-1}(p)}\\
+                &=\norm{Q(\mathbf{x})-\left(G_{k-1}\circ\alpha_k\right)(\mathbf{x})}\\
+                &=\norm{Q(\mathbf{x})-H_k(\mathbf{x})}\\
+                &\leq\norm{H_k-Q}_K\\
+                &<\zeta\leq\frac{\delta}{2^k}
+            \end{aligned}
+        \end{equation}
+    
+    Dies beendet die induktive Konstruktion der Folge der \({G_k}\). Nicht unerwartet setzen wir nun 
+    \[G:=\lim_{k\to\infty}G_k\,.\]
+    Aufgrund der lokalen Endlichkeit der \"Uberdeckung ist diese Grenzfunktion dabei differenzierbar. Final gilt
+    \begin{align*}
+        \norm{G(p)-F(p)}&=\norm{G(p)-G_0(p)}=\norm{\sum_{k=1}^{\infty}\left(G_{k+1}(p)-G_k(p)\right)}\\
+        &\mathop{\leq}^{\Delta}\sum_{k=1}^{\infty}\norm{G_{k+1}(p)-G_k(p)}\mathop{<}^{\eqref{eq:imm_thm:imm_thm:pr_2:0}}\sum_{k=1}^{\infty}\frac{\delta}{2^k}\\
+        %&=\sum_{k=1}^{\infty}2^{-k}\inf\left\{\delta\left(W_k\right)\right\}<\delta(p)\cdot 1\\
+        &=\delta\,.
+    \end{align*}
+\end{proof}
