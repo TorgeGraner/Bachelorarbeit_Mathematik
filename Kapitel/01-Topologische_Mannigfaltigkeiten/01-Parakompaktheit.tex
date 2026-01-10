@@ -1,0 +1,104 @@
+Bevor wir uns dem zentralen Begriff dieser Arbeit zuwenden, m\"ussen wir uns noch etwas mit topologischen Mannigfaltigkeiten besch\"aftigen. Insbesondere ben\"otigen wir f\"ur eine sp\"atere Konstruktion die sogenannte Parakompaktheit, die wir im Folgenden herleiten wollen. Dies zeigt, dass wir, obwohl wir intrinsisch keine Aussagen \"uber \({\mathcal{M}}\) treffen k\"onnen, \"uber die lokale Hom\"oomorphie bereits einige extrinsische Aussagen erhalten. Wir ben\"otigen hierzu einige Vorbereitungen. Ein topologischer Raum \({\mathcal{T}}\) hei\ss t hierbei wenig \"uberraschend \textbf{lokalkompakt}, wenn er lokal kompakt ist, jede Umgebung eines Punktes \({p\in\mathcal{T}}\) also eine kompakte Umgebung enth\"alt.
+
+\begin{theorem}
+    \label{thm:top_man:loc_comp}
+    Eine topologische Mannigfaltigkeit \({\mathcal{M}^m}\) ist lokalkompakt. 
+\end{theorem}
+\begin{proof}
+    Sei \({p\in\mathcal{M}}\) und \({p\in U^{\prime}\subseteq\mathcal{M}}\) eine offene Umgebung. Da sich \({\mathcal{M}}\) lokal in den \({\mathbb{R}^{m}}\) einbetten l\"asst, existiert eine Karte \({\alpha\colon V\to U}\) mit \({U\subseteq U^{\prime}}\). Hierbei ist \({V}\) offen und es existiert ein \({\epsilon>0}\) mit
+    \[K:=\overline{B}_{\nicefrac{\epsilon}{2}}(y)\subset B_{\epsilon}(y)\subseteq V\,.\]
+    Es folgt
+    \[\alpha(K)\subset\alpha\left(V\right)=U\subseteq U^{\prime}\,,\]
+    wobei \({\alpha(K)}\) kompakt ist, da \({\alpha^{-1}}\) stetig, \({K}\) kompakt und \({\mathcal{M}}\) ein Hausdorff-Raum ist.
+\end{proof}
+
+Im Verlauf der weiteren Arbeit werden wir noch von einigen gesonderten \"Uberdeckungsbegriffen Gebrauch ergreifen.
+\begin{definition}
+    Sei \({\left(U_i\right)_{i\in I}}\) eine offene \"Uberdeckung. Eine weitere \"Uberdeckung \({\left(W_j\right)_{j\in J}}\) hei\ss t 
+    \begin{itemize}
+        \item Teil\"uberdeckung, wenn die \({W_j}\) eine Teilfamilie der \({U_i}\) sind,
+        \item Verfeinerung, wenn f\"ur alle \({W_j}\) ein \({U_i}\) existiert sodass \({W_j\subseteq U_i}\),
+        \item lokal endlich, wenn jedes \({p\in\mathcal{T}}\) in blo\ss{} endlich vielen \({W_j}\) enthalten ist.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[von Lindelöf]
+    \label{thm:top_man:sec_count_lind}
+    Jede offene \"Uberdeckung in einem zweitabz\"ahlbaren, topologischen Raum \({\mathcal{T}}\) besitzt eine h\"ochstens abz\"ahlbare Teil\"uberdeckung.
+\end{theorem}
+\begin{proof}
+    Sei \({\mathfrak{U}}\) eine offene \"Uberdeckung von \({\mathcal{T}}\), und \({\mathcal{B}}\) eine h\"ochstens abz\"ahl-bare Basis der Topologie von \({\mathcal{T}}\). Dann existiert f\"ur jedes \({p\in\mathcal{T}}\) eine Umgebung \({p\in U_p\in\mathfrak{U}}\), und da \({U_p}\) Vereinigung von Mengen in \({\mathcal{B}}\) ist, auch eine Umgebung \({p\in B_p\in\mathcal{B}}\) sodass \({B_p\subseteq U_p}\). Aufgrund der Abz\"ahlbarkeit von \({\mathcal{B}}\) existiert eine h\"ochstens abz\"ahlbare Teil\"uberdeckung \({\left(B_p\right)_{p\in\mathcal{T}^{\prime}}}\) von \({\left(B_p\right)_{p\in\mathcal{T}}}\), \(\mathcal{T}^{\prime}\subseteq\mathcal{T}\) sei also h\"ochstens abz\"ahlbar. A fortiori ist \({\left(U_q\right)_{q\in\mathcal{T}^{\prime}}}\) eine h\"ochstens abz\"ahlbare Teil\"uberdeckung von \({\mathfrak{U}}\).
+\end{proof}
+
+Einen solchen Raum, in dem jede offene \"Uberdeckung eine h\"ochstens abz\"ahlbare Teil\"uberdeckung besitzt nennt man auch einen \textbf{Lindel\"of-Raum}. Als unmittelbare Folgerung des vorangegangenen Satz ergibt sich noch folgendes Korollar.
+
+\begin{corollary}[Abz\"ahlbare Atlanten]
+    \label{cor:top_man:count_atlas}
+    Jeder Atlas einer topologische Mannigfaltigkeit enth\"alt einen h\"ochstens \\abz\"ahlbaren Atlas.
+\end{corollary}
+
+Der Satz von Lindel\"of erm\"oglicht nun weiter den folgenden Satz. Hierbei hei\ss e eine Menge \({A\subseteq\mathcal{T}}\) \textbf{relativ kompakt}, wenn \({\overline{A}}\) kompakt ist.
+
+\newpage
+\begin{lemma}[Relativ kompakte \"Uberdeckung]
+    \label{lem:top_man:rel_comp_cover}
+    Jeder lokalkompakte, zweitabz\"ahlbare topologische Raum \({\mathcal{T}}\) besitzt eine offene aber relativ kompakte, h\"ochstens abz\"ahlbare \"Uberdeckung.
+\end{lemma}
+\begin{proof}
+    Man w\"ahle f\"ur alle \({p\in\mathcal{T}}\) offene Umgebungen \({p\in U_p\subseteq\mathcal{T}}\), und mithilfe der Lokalkompaktheit eine kompakte Umgebung \({{p\in K_p\subseteq U_p}}\). Da dies eine Umgebung ist, enth\"alt \({K_p}\) erneut eine offene Umgebung von \({p}\), sodass \({p}\) im Inneren von \({K_p}\) liegt. Somit bilden die \({(\mathring{K}_p)_{p\in\mathcal{T}}}\) eine offene \"Uberdeckung, die nach Satz  \ref{thm:top_man:sec_count_lind} eine h\"ochstens abz\"ahlbare Teil\"uberdeckung enth\"alt.
+\end{proof}
+
+\begin{remark}
+    \label{rem:top_man:comp_fin_cov}
+    Ist der unterliegende topologische Raum \textit{nicht} kompakt, kann nat\"urlich keine endliche kompakte \"Uberdeckung existieren, da dann \({\mathcal{T}}\) als endliche Vereinigung der kompakten Mengen aus der \"Uberdeckung doch kompakt w\"are. Ist \({\mathcal{T}}\) hingegen kompakt, ist die Familie, die \({\mathcal{T}}\) als einziges Glied enth\"alt bereits eine relativ kompakte \"Uberdeckung.
+\end{remark}
+
+\begin{lemma}[Kompakte, echt aufsteigende \"Uberdeckung]
+    \label{lem:top_man:comp_asc_cover}
+    Ein lokalkompakter, zweitabz\"ahlbarer topologischer Raum \({\mathcal{T}}\) der nicht kompakt ist, besitzt eine kompakte \"Uberdeckung \({\left(A_k\right)_{k\in\mathbb{N}}}\) derart, dass \({{A_{k-1}\subset\mathring{A}_k}}\).
+\end{lemma}
+\begin{proof}
+    Wir w\"ahlen gem\"a\ss{} Lemma \ref{lem:top_man:rel_comp_cover} eine offene aber relativ kompakte \"Uberdeckung und eine Abz\"ahlung \({\left(U_i\right)_{i\in\mathbb{N}}}\). Wir setzen \({A_1:=\overline{U}_1}\) und gehen induktiv vor. Sei die Folge bis zum \({(k-1)}\)-ten Glied bereits konstruiert, so setzen wir
+    \[A_k:=\bigcup_{i=1}^{r_k}\overline{U}_i\,,\quad\text{wobei}\quad r_k:=\min\left\{j\in\mathbb{N}\mathrel{|}A_{k-1}\subset\bigcup_{i=1}^jU_i\right\}\quad\text{sei}\,.\]
+    Dieses Minimum existiert, da \({A_{k-1}}\) kompakt ist. Dann ist \({A_k}\) als endliche Vereinigung kompakter Mengen erneut kompakt und es folgt
+    \[A_{k-1}\subset\bigcup_{i=1}^{r_k}U_i=\mathring{A}_k\,.\]
+    Da die Inklusion echt ist, gilt \({{r_{k-1}<r_k}}\), und die Folge bildet tats\"achlich eine \"Uberdeckung.
+\end{proof}
+
+Schlie\ss lich k\"onnen wir den Hauptsatz dieses Abschnitts formulieren.
+
+\begin{definition}[Parakompakt]
+    \label{def:top_man:paracomp}
+    Ein topologischer Raum \({\mathcal{T}}\) hei\ss t parakompakt, falls jede offene \"Uberdeckung eine lokal endliche Verfeinerung besitzt.
+\end{definition}
+\newpage
+\begin{theorem}
+    \label{thm:top_man:paracomp}
+    Ein lokalkompakter, zweitabz\"ahlbarer Hausdorff-Raum \({\mathcal{T}}\) ist parakompakt.
+\end{theorem}
+\begin{proof}
+    Ist \({\mathcal{T}}\) kompakt, existiert bereits zu jeder offenen \"Uberdeckung eine endliche Teil\"uberdeckung, die auch trivialerweise lokal endlich ist. Sei \({\mathcal{T}}\) nun also nicht kompakt. Wir w\"ahlen gem\"a\ss{} Lemma \ref{lem:top_man:comp_asc_cover} eine kompakte \"Uberdeckung \({\left(A_k\right)_{k\in\mathbb{N}}}\) mit \({{A_{k-1}\subset\mathring{A}_k}}\). Sei \({{\left(U_i\right)_{i\in I}}}\) eine weitere beliebige offene \"Uberdeckung von \({\mathcal{T}}\). Dann ist \({{A_k\setminus\mathring{A}_{k-1}}}\) kompakt und kann von endlich vielen \({U_{i_j}}\) \"uberdeckt werden. Wir definieren hierzu die offenen Mengen
+    \[V_{k,j}:=U_{i_j}\cap\left(\mathring{A}_{k+1}\setminus A_{k-2}\right)\quad\text{f\"ur}\quad j\in J_k\subseteq I\quad\text{mit}\quad\abs{J_k}<\infty\,,\]
+    die offenbar eine Verfeinerung der \({U_i}\) darstellen. 
+    
+    \subsubsection{Lokale Endlichkeit}
+    Sei \({p\in A_k\setminus A_{k-1}}\). Da die \({A_k}\) eine aufsteigende Folge sind, gilt f\"ur \({s\geq k+2}\)
+    \[p\in A_k\subseteq A_{s-2}\,,\quad\text{also auch}\quad p\notin\mathring{A}_{s+1}\setminus A_{s-2}\]
+    und folglich \({p\notin V_{s,j}}\). Ist andererseits \({s\leq k-2}\), so gilt \({A_{s+1}\subseteq A_{k-1}}\) also auch
+    \[p\notin A_{k-1}\supseteq A_{s+1}\,,\quad\text{also auch}\quad p\notin\mathring{A}_{s+1}\setminus A_{s-2}\]
+    und erneut \({p\notin V_{s,j}}\). Somit kann \({p}\) lediglich in den endlich vielen \({V_{s,j}}\) mit \({k+1\leq s\leq k-1}\) liegen. Dies ergibt die lokale Endlichkeit. 
+    
+    \subsubsection{\"Uberdeckungseigenschaft}
+    Dies folgt aus
+    \begin{align*}
+        \mathcal{T}\supseteq\bigcup_{k\in\mathbb{N}}\bigcup_{j\in J_k}V_{k,j}&=\bigcup_{k\in\mathbb{N}}\left(\mathring{A}_{k+1}\setminus A_{k-2}\right)\cap\bigcup_{j\in J_k}U_{i_j}\\
+        &\supseteq\bigcup_{k\in\mathbb{N}}\left(\mathring{A}_{k+1}\setminus A_{k-2}\right)\cap(A_k\setminus\mathring{A}_{k-1})\\
+        &=\bigcup_{k\in\mathbb{N}}A_k\setminus\mathring{A}_{k-1}=\mathcal{T}\,,
+    \end{align*}
+    da die letzte Vereinigung teleskopiert, und jedes \({p\in\mathcal{T}}\) f\"ur hinreichend gro\ss es \({k}\) in einem der \({A_k}\) liegt.
+\end{proof}
+
+Als Korollar erhalten wir nun unser gew\"unschtes Ergebnis.
+\begin{corollary}
+    Jede topologische Mannigfaltigkeit ist parakompakt.
+\end{corollary}

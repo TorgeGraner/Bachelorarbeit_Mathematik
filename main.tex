@@ -1,0 +1,184 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{units}    % useful for settings units, \unit[23]{m}
+\usepackage{nicefrac} % for setting fractions esp. within text, \nicefrac{km}{h}
+\usepackage[german]{babel}
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, decorations.pathreplacing, calligraphy, patterns, arrows.meta, positioning}
+\usepackage{pgf, pgfplots}
+\pgfplotsset{compat=1.18} 
+\usepackage{algorithm, algorithmicx, algpseudocode} % Pseudocode
+\usepackage{amsmath, amssymb, amsthm} % definitions
+\usepackage{bbm}
+\usepackage{pict2e} % angle symbol
+\usepackage[pdfpagelabels,colorlinks,allcolors=black]{hyperref} % Hyperlink referencing
+\usepackage{subcaption} % subfigure captions
+\usepackage{bm} % Bold math letters
+\usepackage{tipa, stmaryrd} % eta symbol
+\usepackage{multirow} % Multirow table
+\usepackage{booktabs} % Better tables
+\usepackage{csquotes}
+
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+\algnewcommand\AND{\textbf{and }}
+\algnewcommand\OR{\textbf{or }}
+\algnewcommand\NOT{\textbf{not }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\eta}{%
+    \raisebox{-0.7mm}[0.8\height][\width]{
+        \parbox{0.5mm}{
+            \makebox[0.1mm]{
+            \begin{tikzpicture}%
+                \draw node at (-0.04, 0) {\scalebox{0.9}{\textlhtlongi}}; 
+                \draw node at (0.09, -0.08) {\rotatebox[origin=c]{15}{\scalebox{1}[-1]{\(\Rbag\)}}};
+            \end{tikzpicture}%
+            }
+        }
+    }\hspace*{1pt}
+}
+
+\DeclareSymbolFont{myletters}{OML}{ztmcm}{m}{it}
+\DeclareMathSymbol{\uplambda}{\mathord}{myletters}{"15}
+\renewcommand{\lambda}{\uplambda}
+
+\newcommand{\dx}{\text{d}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\abs{\abs{#1}}}
+\def\i{\boldsymbol{i}}
+
+
+\newcommand{\angl}{
+    \raisebox{-0.5mm}{
+        \begin{tikzpicture}[line width = 0.2]
+            \draw [rounded corners = 0.1] (27:0.35) -- (0, 0) -- (-25.5:0.35);
+            \draw (-25.5:0.2) arc (-27:25.5:0.2);
+        \end{tikzpicture}
+    }\hspace*{-1.5mm}
+}
+\let\cleardoublepage\clearpage
+\DeclareRobustCommand{\lltriangle}{%
+  \begingroup
+  \setlength{\unitlength}{1ex}%
+  \begin{picture}(1,1)
+  \polygon(0, 0)(1.3, 0)(0, 1.3)
+  \end{picture}%
+  \endgroup
+}
+
+\newtheoremstyle{break}% name
+  {}%         Space above, empty = `usual value'
+  {}%         Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+  
+\newtheoremstyle{rem}% name
+  {}%         Space above, empty = `usual value'
+  {}%         Space below
+  {}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+  
+\theoremstyle{break}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Korollar}[section]
+
+\theoremstyle{rem}
+\newtheorem{example}{Beispiel}[section]
+\newtheorem{remark}{Bemerkung}[section]
+
+\theoremstyle{definition}
+
+\renewcommand\qedsymbol{q.e.d.}
+
+\title{Einbettungen von differenzierbaren Mannigfaltigkeiten im euklidischen Raum}
+\author{Torge Graner}
+
+
+\begin{document}
+
+    \begin{titlepage}
+               
+        \begin{center}
+            \LARGE{\textsc{Institut für Mathematik}}
+            
+            \vfill
+            
+            \LARGE{\emph{Bachelorarbeit}}
+            
+            \vspace{8mm}
+            
+            \huge{\textbf{Einbettungen von differenzierbaren Mannigfaltigkeiten im euklidischen Raum}}
+            
+            \vspace{8mm}
+            
+            \LARGE{Torge Graner}
+            
+            \vspace{32mm}
+            
+            \large{24.11.2023}
+            \vfill
+            
+            \begin{tabular}{ll}
+              \large
+              Erstgutachter: & \large Prof. Dr. math. Oliver Röndigs\\
+              \large
+              Zweitgutachter: & \large M.Sc. Xiaowen Dong
+            \end{tabular}
+        \end{center} 
+    \end{titlepage}
+
+    \tableofcontents
+    \thispagestyle{empty}
+
+    \newpage
+    \input{Kapitel/Notation}
+
+    \chapter{Einf\"uhrung}
+        \input{Kapitel/00-Einfuehrung}
+
+    \chapter{Topologische Mannigfaltigkeiten}
+        \input{Kapitel/01-Topologische_Mannigfaltigkeiten}
+
+    \chapter{Differenzierbare Mannigfaltigkeiten}
+        \input{Kapitel/02-Differenzierbare_Mannigfaltigkeiten}
+        
+    \chapter{Teilung der Eins}
+        \input{Kapitel/03-Teilung_der_Eins}
+        
+    \chapter{Der Immersionssatz}
+        \input{Kapitel/04-Immersionssatz}
+        
+    \chapter{Der Einbettungssatz}
+        \input{Kapitel/05-Einbettungssatz}
+
+    %\chapter{Kobordismentheorie}
+    %    \input{Kapitel/06-Kobordismentheorie}
+
+    %\appendix
+    
+    %\chapter*{Appendix}
+    %\refstepcounter{chapter}
+    %\addcontentsline{toc}{chapter}{Appendix}
+    
+    %\input{Kapitel/Appendix}
+
+    \bibliographystyle{plain}
+    \bibliography{sources}
+\end{document}

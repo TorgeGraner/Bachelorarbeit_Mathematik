@@ -1,0 +1,127 @@
+Um effektiv analytische Methoden auf einer topologischen Mannigfaltigkeit anwenden zu k\"onnen, m\"ussen wir weitere Forderungen stellen. Da wir, wie bereits angesprochen, kaum intrinsischen Aussagen \"uber \({\mathcal{M}}\) treffen k\"onnen, m\"ussen wir den Umweg \"uber die Karten gehen. Insbesondere sind f\"ur einen bekannten Atlas \({\left\{\alpha_i\colon V_i\to U_i\right\}}\) die Verkn\"upfungen
+\[\alpha_j^{-1}\circ\alpha_i\colon\alpha_i^{-1}(U_i\cap U_j)\to\alpha_j^{-1}(U_i\cap U_j)\]
+aufgrund von \({\alpha_i^{-1}(U_i\cap U_j)\subseteq\mathbb{R}^m}\) und \({\alpha_j^{-1}(U_i\cap U_j)\subseteq\mathbb{R}^m}\) reelle Abbildungen, die bereits mit Hilfe von analytischen Methoden gut bekannt sind. Wenig \"uberraschend fordern wir nun, dass die Kartenwechsel \({\mathcal{C}^k}\)-differenzierbar sind, und nennen einen derartigen Atlas einen \(\mathcal{C}^k\)-Atlas. Siehe auch Abbildung \ref{fig:diff_man:trans_map}. Zwei \({\mathcal{C}^k}\)-Atlanten von \({\mathcal{M}}\) und \({\mathcal{A}_1}\) und \({\mathcal{A}_2}\) seien \"aquivalent, falls ihre Vereinigung erneut ein \({\mathcal{C}^k}\)-Atlas ist. \"Aquivalenzklassen bez\"uglich dieser \"Aquivalenzrelation hei\ss en \textbf{differenzierbare \({k}\)-Strukturen}. Dies erm\"og\-licht die Definition einer differenzierbaren Mannigfaltigkeit.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale = 0.6]
+        \draw 
+        (1, 6) 
+        .. controls (1.5, 8) and (1.5, 10) .. (1, 11)
+        .. controls (4, 11) and (7, 8) .. node [pos = 0.5, above = 0.5] {\({\mathcal{M}}\)} (7, 8)
+        .. controls (4, 8) and (2, 7) .. (1, 6)
+        
+        (3, 8.5) 
+        .. controls (2.5, 8) and (2, 9) .. (2, 9.5)
+        .. controls (2, 10) and (3, 10) .. (3.5, 9.5)
+        .. controls (4, 9) and (3.5, 9) .. (3, 8.5)
+        .. controls (3.5, 8) and (4, 8) .. (4.5, 8.5)
+        .. controls (5, 9) and (4, 10) .. (3.5, 9.5)
+        .. controls (3, 9) and (2.5, 9) .. (3, 8.5)
+
+        (1, 2) 
+        .. controls (0.5, 1) and (2, 0.5) .. (3, 1)
+        .. controls (4, 1.5) and (3, 3.5) .. (1.5, 3.5)
+        .. controls (0, 3.5) and (1.5, 3) .. (1, 2)
+        
+        (8, 1) 
+        .. controls (9, 0) and (10, 2) .. (10, 4)
+        .. controls (10, 6) and (9, 6) .. (8, 5)
+        .. controls (7, 4) and (7, 2) .. (8, 1);
+
+        \path [pattern = north east lines] 
+         (3.5, 9.5) .. controls (4, 9) and (3.5, 9) .. (3, 8.5)
+         .. controls (2.5, 9) and (3, 9) .. (3.5, 9.5) -- cycle;
+            
+
+        \draw [->] (1.5, 3) [bend left = 45] to node [pos = 0.6, sloped, above] {\({\alpha_1}\)} (2, 9);
+        \draw [->] (9, 5) [bend right = 45] to node [pos = 0.5, sloped, above] {\({\alpha_2}\)} (4.75, 9);
+        \draw [->] (3, 2) [bend left = 25] to node [pos = 0.5, sloped, above] {\({\alpha_2^{-1}\circ\alpha_1}\)} (8, 3);
+
+        \draw [dotted, thick] (8, 1) .. controls (9, 1) and (9, 4) .. (8, 5);
+        \draw [dotted, thick] (3, 1) .. controls (2.5, 1.5) and (2, 2.5) .. (2.964,2.764);
+
+        \node at (2.5, 9.4) {\({U_1}\)};
+        \node at (4.1, 8.9) {\({U_2}\)};
+        \node at (1.75, 2) {\({V_1}\)};
+        \node at (9.25, 4) {\({V_2}\)};
+    \end{tikzpicture}
+    \caption{Prinzip der Kartenwechsel}
+    \label{fig:diff_man:trans_map}
+\end{figure}
+
+
+\begin{definition}[Differenzierbare \({\mathcal{C}^k}\)-Mannigfaltigkeit]
+    \label{def:diff_man:diff_man}
+    Eine topologische Mannigfaltigkeit mit einer differenzierbaren \({k}\)-Struktur.
+\end{definition}
+
+\subsubsection{Anmerkungen zu differenzierbaren Strukturen}
+    Zun\"achst sehen wir, dass die Angabe eines solchen Atlas bereits eine differenzierbare Struktur auf unserer Mannigfaltigkeit fixiert, und somit zeigt, dass eine differenzierbare Mannigfaltigkeit vorliegt. Weiter ist der Begriff der differenzierbaren Mannigfaltigkeit erneut unabh\"angig von einem externen Raum. Beispielsweise ist der Graph einer nirgends differenzierbaren aber stetigen Funktion \({f\colon\mathbb{R}\to\mathbb{R}}\) eine differenzierbare Mannigfaltigkeit. Man betrachte hierzu \({\alpha\colon x\mapsto(x,f(x))^T}\) und \({\alpha^{-1}\colon(x,y)\mapsto x}\). Diese Abbildung ist, aufgefasst im \({\mathbb{R}^2}\) nicht differenzierbar, da wir jedoch nur eine Karte haben existieren keine Kartenwechsel, trivialerweise ist unsere Definition erf\"ullt. Dies mag unintuitiv erscheinen, liegt jedoch daran, dass unsere Intuition der Differenzierbarkeit in diesem Fall auf dem umliegenden \({\mathbb{R}^2}\) basiert, \"uber den wir keine Aussage t\"atigen wollen. Diese Intuition gleicht dem Begriff der Untermannigfaltigkeit des \({\mathbb{R}^n}\). 
+    
+    Trotz diesem Beispiel existieren dennoch topologische Mannigfaltigkeiten, die keine differenzierbare Struktur zulassen \cite{kervaire1960nonDiff}, sowie andere Mannigfaltigkeiten, die unterschiedliche differenzierbare Strukturen erm\"oglichen wie die exotische 7-Sph\"are \cite{milnor1960nonDiff}. Es l\"asst sich au\ss erdem zeigen, dass Mannigfaltigkeiten der Dimension \({n\leq3}\) lediglich eine solche differenzierbare Struktur erm\"oglichen. F\"ur \({n>4}\) gilt weiter, dass f\"ur jede \({n}\)-dimensionale differenzierbare Mannigfaltigkeit lediglich endlich viele differenzierbare Strukturen existieren, f\"ur \({n=4}\) ist diese Frage nicht schlussendlich gekl\"art.
+    
+    Im Folgenden werden wir uns auf \({\mathcal{C}^1}\)-Mannigfaltigkeiten beschr\"anken. Da sich diese bereits in den euklidischen Raum einbetten lassen, ist die Forderung h\"oherer Differenzierbarkeit nicht vonn\"oten.
+
+    \begin{example}
+        Wir wollen den \({\mathbb{R}^n}\) als Mannigfaltigkeit auffassen. Wir bemerken zun\"achst, dass \({\{\text{id}\}}\) bereits trivialerweise einen Atlas darstellt und somit eine differenzierbare Struktur induziert. F\"ur jedes \({n\not=4}\) existiert tats\"achlich auch lediglich eine differenzierbare Struktur (ein Fakt der keineswegs trivial ist, siehe \cite{stallings1962}), f\"ur \({n=4}\) jedoch \"uberabz\"ahlbar viele (siehe \cite{taubes1987gauge}). Wenn im Folgenden der \({\mathbb{R}^n}\) als Mannigfaltigkeit aufgefasst wird, sei dieser im Fall \({n=4}\) stets mit der Struktur versehen, die von der Identit\"at induziert wird. Mit dieser Struktur ist jede Karte ein Diffeomorphismus, da ja 
+        \[\text{id}^{-1}\circ\alpha\quad\text{sowie}\quad\alpha^{-1}\circ\text{id}\]
+        jeweils Diffeomorphismen sind.
+    \end{example}
+     Wir k\"onnen nat\"urlich auch das Konzept der differenzierbaren Funktionen aus dem euklidischen Raum in naheliegender Weise auf Mannigfaltigkeiten \"ubertragen.
+    \begin{definition}[Differenzierbare Abbildung]
+        \label{def:diff_man:diff_map}
+        Seien \({\mathcal{M}}\) und \({\mathcal{N}}\) differenzierbare Mannigfaltigkeiten, so hei\ss t eine Abbildung \({F\colon\mathcal{M}\to\mathcal{N}}\) differenzierbar, falls
+        \[\beta^{-1}\circ F\circ\alpha\]
+        f\"ur Karten \({\alpha}\) (von \({\mathcal{M}}\)) und \({\beta}\) (von \({\mathcal{N}}\)) es ist.
+    \end{definition}
+    Der \textbf{Rang} in einem Punkt \(p\in\mathcal{M}\) ist dabei der Rang der Jacobimatrix im Punkt \(\alpha^{-1}(p)\). Eine differenzierbare Abbildung hei\ss t \textbf{regul\"ar}, falls sie in jedem Punkt vollen Rang besitzt, sonst \textbf{singul\"ar}. Dass die Differenzierbarkeit unabh\"angig von den gew\"ahlten Karten ist folgt direkt aus der Diffeomorphismuseigenschaft der Kartenwechsel. Ist n\"amlich \({\beta^{-1}\circ F\circ\alpha}\) differenzierbar, so ist es auch
+    \[\left(\beta_2^{-1}\circ\beta_1\right)\circ\left(\beta_1^{-1}\circ F\circ\alpha\right)=\beta_2^{-1}\circ F\circ\alpha\,,\]
+    beziehungsweise
+    \[\left(\beta^{-1}\circ F\circ\alpha_1\right)\circ\left(\alpha_1^{-1}\circ\alpha_2\right)=\beta^{-1}\circ F\circ\alpha_2\,,\]
+    f\"ur weitere Karten. Die Unabh\"angigkeit der Regularit\"at folgt, da
+    \[D_x\left(\beta^{-1}\circ F\circ\alpha_1\right)\quad\text{und}\quad D_x\left(\alpha_1^{-1}\circ\alpha_2\right)\]
+    jeweils injektiv sind, ist es mit \({y:=\left(\alpha_2^{-1}\circ\alpha_1\right)(x)}\), also auch
+    \begin{align*}
+        D_x\left(\beta^{-1}\circ F\circ\alpha_2\right)&=D_x\left(\left(\beta^{-1}\circ F\circ\alpha_2\right)\circ\left(\alpha_2^{-1}\circ\alpha_1\right)\right)\\
+        &=D_y\left(\beta_1^{-1}\circ F\circ\alpha_2\right)\circ D_x\left(\alpha_2^{-1}\circ\alpha_1\right)
+    \end{align*}
+    als Verkn\"upfung zweier bijektiver Funktionen. Analog l\"asst sich \({\beta}\) austauschen. Ein \textbf{regul\"arer Wert} ist ein Punkt \({q\in\mathcal{N}}\) derart, dass \({F}\) in allen \({p\in F^{-1}(\{q\})}\) regul\"ar ist.
+    
+\subsubsection{Tangentialraum}
+    Eine grundlegende und in der Differentialgeometrie/-topologie sehr wichtige Konstruktion ist durch den Tangentialvektorraum gegeben. Diese erm\"oglicht es, die Differenzierbarkeit einer Funktion weiter zu verallgemeinern, ist allerdings f\"ur den Beweis des Einbettungssatzes nicht zwingend n\"otig. Es gibt mehrere Arten den Tangentialraum in einem Punkt \({p\in\mathcal{M}}\) zu definieren, auf die hier nicht weiter eingegangen werden soll. 
+    
+    \begin{definition}[Immersion]
+        \label{def:diff_man:immersion}
+        Eine differenzierbare Abbildung \({\mathcal{M}\to\mathcal{N}}\), die in in jedem Punkt \({p\in\mathcal{M}}\) regul\"ar ist.
+    \end{definition}
+    
+    \begin{definition}[Einbettung einer differenzierbaren Mannigfaltigkeit]
+        \label{def:diff_man:embedding}
+        Eine topologische Einbettung, die eine Immersion ist.
+    \end{definition}
+    Eine hilfreiche Eigenschaft einer differenzierbaren Einbettung, die in unserem Fall nachgewiesen werden wird, ist die Folgende. Teile der Beweisidee entstammen hierbei \cite{Lee2013} Satz A.57.
+    \begin{theorem}
+        \label{def:diff_man:emb_inj_imm}
+        Eine differenzierbare Abbildung \({F\colon\mathcal{M}\to\mathcal{N}}\) ist genau dann eine Einbettung, wenn sie eine eigentliche injektive Immersion ist.
+    \end{theorem}
+    \begin{proof}
+        Dass eine solche Einbettung eine eigentliche, injektive Immersion ist, ist trivial. Sei also nun \({F}\) eine eigentliche, injektive Immersion. Dann ist \({F}\) stetig und wegen der Injektivit\"at eine Bijektion auf ihr Bild. Lediglich die Stetigkeit der Umkehrabbildung (\({F(\mathcal{M})\to\mathcal{M}}\)) verbleibt zu zeigen. Dies ist genau dann der Fall, wenn \({F}\) abgeschlossen ist. Sei also \({A\subseteq\mathcal{M}}\) abgeschlossen, \({y\in\mathcal{N}\setminus F(A)}\) und \({V}\) eine offene aber relativ kompakte Umgebung von \({y}\). Da \({F}\) eigentlich ist, ist \({{E:=F^{-1}\left(\overline{V}\right)\cap A}}\) kompakt. Aufgrund der Stetigkeit von \({F}\) ist dann auch weiter das Bild von \({E}\) also \({{F(E)=\overline{V}\cap F(A)}}\) kompakt, und als Teilmenge des Hausdorff-Raumes  \({\mathcal{N}}\) auch abgeschlossen. Also ist \({V\setminus F(E)}\) eine offene Umgebung von \({y}\), die wegen
+        \[F(A)\cap\left(V\setminus F(E)\right)=F(A)\cap V\setminus\left(\overline{V}\cap F(A)\right)=F(A)\cap V\setminus F(A)=\varnothing\]
+        disjunkt von \({F(A)}\) ist. Folglich ist \({\mathcal{N}\setminus F(A)}\) offen, und \({F(A)}\) abgeschlossen.
+    \end{proof}
+    
+    \begin{theorem}
+        \label{thm:diff_man:imm_loc_emb}
+        Eine Immersion \({F\colon\mathcal{M}\to\mathcal{N}}\) ist lokal bijektiv.
+    \end{theorem}
+    \begin{proof}
+        Aufgrund der Regularit\"at ist \({\beta^{-1}\circ F\circ\alpha}\) gem\"a\ss{} dem Satz \"uber die implizite Funktion lokal diffeomorph. Dann muss \({F}\) lokal injektiv, also auch lokal bijektiv sein.
+    \end{proof}
+    
+    Ein f\"ur den sp\"ateren Verlauf wichtiger Satz ist der Satz von Sard. Dieser garantiert, dass die Menge der singul\"aren Werte einer differenzierbaren Funktion \({\mathcal{M}\to\mathbb{R}^n}\) \glqq d\"unn ges\"aht\grqq{} sind.
+    
+    \begin{theorem}[Sard]
+        \label{def:diff_man:sard}
+        Das Bild der Menge der singul\"aren Werte \({C}\) einer differenzierbaren Funktion \({F\colon\mathcal{M}^m\to\mathbb{R}^n}\) unter \({F}\) ist eine Lebesgue-Nullmenge.
+    \end{theorem}
+    Beispielsweise impliziert dies, dass wir stets regul\"are Werte finden k\"onnen, die beliebig nahe am Ursprung liegen. F\"ur einen Beweis, siehe zum Beispiel \cite{broecker1973differentialtopologie} §6.

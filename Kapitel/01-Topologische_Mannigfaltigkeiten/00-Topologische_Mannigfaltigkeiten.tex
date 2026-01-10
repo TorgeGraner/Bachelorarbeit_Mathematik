@@ -1,0 +1,24 @@
+Ein topologischer Raum \({\mathcal{T}}\) besitzt im Folgenden eine Eigenschaft \textbf{lokal}, wenn jeder Punkt \({p\in \mathcal{T}}\) und jede Umgebung \({p\in U\subseteq\mathcal{T}}\) eine weitere Umgebung \({p\in V\subseteq U}\) enth\"alt, die die Eigenschaft besitzt. Eine \textbf{topologische Einbettung} ist eine Abbildung, die ein Hom\"oomorphismus auf ihr Bild ist.
+
+\begin{definition}[Zweitabz\"ahlbarer Raum]
+    \label{def:top_man:sec_count}
+    Ein topologischer Raum, der einer h\"ochstens abz\"ahlbare Basis besitzt.
+\end{definition}
+
+\begin{definition}[Topologische Mannigfaltigkeit]
+    \label{def:top_man:top_man}
+    Ein zweitabz\"ahlbarer Hausdorff-Raum \({\mathcal{M}}\), der sich lokal topologisch in den \({\mathbb{R}^m}\) einbetten l\"asst.
+\end{definition}
+In dieser Definition sei \({m\in\mathbb{N}}\) konstant, sodass wir von der \textbf{Dimension} \({m}\) einer Mannigfaltigkeit sprechen. Dass eine Mannigfaltigkeit die Dimension \({m}\) besitzt, wird im Folgenden stets durch die Hochstellung \({\mathcal{M}^m}\) impliziert. Oft wird auch von einer \({m}\)-Mannigfaltigkeit gesprochen. F\"ur jeden Punkt \({p\in\mathcal{M}^m}\) existiert also eine Umgebung \({U}\) und eine Einbettung \({\phi\colon U\to\mathbb{R}^m}\). Da diese gerade ein Hom\"oomorphismus auf ihr Bild ist, erhalten wir mit \({V:=\phi(U)}\) eine Hom\"oomorphie \({U\cong V}\). Etwas allgemeiner besitzt \({\mathcal{M}}\) eine offene \"Uberdeckung
+\[\mathcal{M}=\bigcup_{i\in I}U_i\,,\quad\text{wobei}\quad U_i\cong V_i\subseteq\mathbb{R}^m\]
+verm\"oge Hom\"oomorphismen \({\alpha_i\colon V_i\to U_i}\) ist. Die \({\alpha_i^{-1}}\) sind hierbei gerade die Einbettungen der Definition. Diese \({\alpha_i}\) werden auch \textbf{Karten} genannt (in Literatur meistens umgekehrt, also \({\alpha_i\colon U_i\to V_i}\)), und die Menge der Tupel \({(V_i,\alpha_i)}\) ein \textbf{Atlas}, welcher im Weiteren auch mit \({\{\alpha_i\colon V_i\to U_i\}}\) bezeichnet werde. Die Forderung der Zweitabz\"ahlbarkeit einer Mannigfaltigkeit ist nicht allgemeing\"ultig, f\"ur unsere Zwecke jedoch vonn\"oten, da aus dieser erst die Parakompaktheit, und damit die Existenz einer Teilung der Eins folgt.
+
+\begin{example}
+    Alle offenen Teilmengen \({U\subseteq\mathbb{R}^m}\) sind trivialerweise \({m}\)-Mannigfaltigkeiten, wobei die Identit\"at \({\text{id}\colon U\to U}\) einen Atlas mit einer Karte darstellt.
+\end{example}
+
+\begin{example}[Sph\"are]
+    Die \({n}\)-dimensionale Sph\"are \({S^n:=\{\mathbf{x}\in\mathbb{R}^{n+1}\colon\norm{\mathbf{x}}=1\}}\) ist wie zuvor angesprochen ebenso eine topologische Mannigfaltigkeit, die sich nicht von einer einzigen Karte \"uberdecken l\"asst. Dennoch ist mithilfe einer stereographischen Projektion zum Beispiel eine Karte gegeben, die den \({\mathbb{R}^n}\) hom\"oomorph auf \({S^n\setminus\{p\}}\) f\"ur ein Projektionszentrum \({p\in S^n}\) abbildet. F\"ur \({p=e_{n+1}}\) ist diese zum Beispiel durch
+    \[\alpha\colon\mathbb{R}^n\to S^n\setminus\left\{e_{n+1}\right\},\,\mathbf{x}\mapsto e_{n+1}\cdot\frac{\norm{\mathbf{x}}^2-1}{\norm{\mathbf{x}}^2+1}+\mathbf{x}\cdot\frac{2}{\norm{\mathbf{x}}^2+1}\]
+    gegeben. Komponiert man diese Karte mit einer (bijektiven) Rotationsabbildung, die \({e_{n+1}}\) auf \({p}\) abbildet, erh\"alt man eine Karte \({\mathbb{R}^n\to S^n\setminus\{p\}}\). Zwei Karten mit ungleichen Projektionszentren bilden dann einen Atlas.
+\end{example}

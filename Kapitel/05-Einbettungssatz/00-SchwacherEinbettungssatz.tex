@@ -1,0 +1,68 @@
+Wir haben bisher gezeigt, dass wir jede differenzierbare Funktion durch eine Immersion beliebig gut approximieren k\"onnen. Wir werden dieses Ergebnis noch insofern verbessern, zus\"atzlich Injektivit\"at der Approximationsimmersion fordern k\"onnen.
+
+\begin{lemma}[Approximation mittels injektiver Immersionen]
+    Sei \({n>2m}\), \({\mathcal{M}^m}\) eine differenzierbare Mannigfaltigkeit, \({U\subseteq\mathcal{M}}\) offen, \({\delta>0}\) und \({F\colon\mathcal{M}\to\mathbb{R}^n}\) eine in \({U}\) injektive Immersion. Dann existiert zu jeder abgeschlossenen Teilmenge \({A\subset U}\) eine injektive Immersion \({G\colon\mathcal{M}\to\mathbb{R}^n}\) derart, dass \({G|_A=F|_A}\) und \({G}\) eine \({\delta}\)-Approximation von \({F}\) ist.
+\end{lemma}
+\begin{proof}
+    Zun\"achst k\"onnen wir aufgrund des Immersiossatzes annehmen, dass \({F}\) eine Immersion ist, die aufgrund von Satz \ref{thm:diff_man:imm_loc_emb} eine lokale Immersion und damit lokal injektiv ist. Damit existiert eine offene \"Uberdeckung \({\left(W_i\right)_{i\geq2}}\) von \({\mathcal{M}\setminus U}\) derart, dass die Einschr\"ankungen \({F|_{W_i}}\) Einbettungen sind. Wir setzen \({U_i:=W_i\cap\left(\mathcal{M}\setminus A\right)}\) und \({U_0:=U}\), sodass wir mit  \({\left(U_i\right)_{i\in\mathbb{N}}}\) eine offene \"Uberdeckung von \({\mathcal{M}}\) erhalten. Wir w\"ahlen einen dieser \"Uberdeckung untergeordneten guten Atlas \({\left\{\alpha_k\colon B_1\to V_k\right\}}\) gem\"a\ss{} Satz \ref{sec:part_one:good_atlas:exists} und einer Zerlegung der Eins \({\theta_k}\) gem\"a\ss{} Sektion \ref{sec:part_one:constr_one}. Wie im Immersionssatz konstruieren wir induktiv eine Folge injektiver Immersion die gegen unser gesuchtes \({G}\) konvergiert.
+    
+    Sei also erneut \({G_0:=F}\) und \({G_{k-1}}\) bereits konstruiert. Ist \({V_k\subseteq U}\), setzen wir \({G_k=G_{k-1}}\). Sei also \({V_k\subset\mathcal{M}\setminus U}\), so betrachten wir die Menge \({N:=\{\omega_n(p)\not=\omega_n(q)\}\subset\mathcal{M}^2}\) und die Hilfsfunktion
+    \[H_k\colon N\to\mathbb{R}^n,\,\binom{p}{q}\mapsto-\frac{G_{k-1}(p)-G_{k-1}(q)}{\theta_k(p)-\theta_k(q)}\,.\]
+    Wie in Satz \ref{thm:imm_thm:reg_dense} w\"ahlen wir aufgrund von
+    \[\text{dim}\left(N\right)=\text{dim}\left(\mathcal{M}^2\right)=2m<n=\text{dim}\left(\mathbb{R}^n\right)\]
+    mithilfe des Satzes von Sard einen Punkt \({\mathbf{a}_k}\) aus dem Komplement des Bildes von \({H_n}\) mit 
+    \begin{equation}
+        \label{eq:emb_thm:inj_app:0}
+        \norm{\mathbf{a}_k}<\frac{\delta}{2^k}
+    \end{equation}
+    w\"ahlen. Sei nun 
+    \[G_k:=G_{k-1}+\theta_k\cdot\mathbf{a}_k\]
+    und
+    \[G:=\lim_{k\to\infty}G_k\,.\]
+    Es verbleibt zu zeigen, dass \({G}\) injektiv ist. Seien also \({p,q\in\mathcal{M}}\). Da die \({V_k}\) eine lokal endliche \"Uberdeckung von \({\mathcal{M}}\) bilden, existiert ein \({i}\) derart, dass \({G(p)=G_i(p)}\) und \({G(q)=G_i(q)}\). Einerseits folgt aus
+    \begin{equation}
+        \label{eq:emb_thm:inj_app:1}
+        \begin{array}{rrl}
+            &G(p)=&\hspace{-6pt}G(q)\\[5pt]
+            \Leftrightarrow&G_i(p)=&\hspace{-6pt}G_i(q)\\[5pt]
+            \Leftrightarrow&G_{i-1}(p)-G_{i-1}(q)=&\hspace{-6pt}-(\theta_i(p)-\theta_i(q))\cdot\mathbf{a}_i
+        \end{array}
+    \end{equation}
+    nun, dass \({\theta_i(p)\not=\theta_i(q)}\) gelten muss, da sich anderenfalls durch ihre Differenz teilen lie\ss e und sich der Widerspruch
+    \[-\frac{G_{i-1}(p)-G_{i-1}(q)}{\theta_i(p)-\theta_i(q)}=H_i(p,q)\not=\mathbf{a}_i\]
+    erg\"abe. Folglich gilt \({\theta_i(p)=\theta_i(q)}\) und demnach auch \({G_{i-1}(p)=G_{i-1}(q)}\). Es ergibt sich rekursiv \({G(p)=G_0(p)=F(p)=F(q)}\). 
+
+    Andererseits bilden die \({\alpha_k\left(B_{\nicefrac{1}{3}}\right)}\) immernoch eine \"Uberdeckung von \({\mathcal{M}}\) und es existiert ein \({j\leq i}\) derart, dass \({p\in\alpha_j\left(B_{\nicefrac{1}{3}}\right)}\) und somit auch \({\theta_j(p)=1}\) ist. Aus \({\theta_j(q)=\theta_j(p)=1}\) folgt, dass \({q}\) ebenso in \({\alpha_j\left(B_{\nicefrac{1}{3}}\right)}\), also im gleichen Kartengebiet wie \({p}\) liegt. Da \({F}\) auf allen Kartengebieten injektiv ist, ergibt sich schlie\ss lich \({p=q}\). Dass \({G}\) eine \({\delta}\)-Approximation von \({F}\) ist ergibt sich erneut daraus, dass f\"ur alle \({p}\) ein \({k}\) existiert, sodass \({G(p)=G_k(p)}\) ist, was die Absch\"atzung
+    \begin{align*}
+        \norm{G(p)-F(p)}&=\norm{G(p)-G_0(p)}=\norm{\sum_{j=1}^kG_j(p)-G_{j-1}(p)}\\
+        &\mathop{\leq}^{\Delta}\sum_{j=1}^k\norm{G_j(p)-G_{j-1}(p)}\mathop{=}^{\text{Def.}}\sum_{j=1}^k\norm{\theta_j(p)\cdot\mathbf{a}_j}\\
+        &\leq\sum_{j=1}^k\norm{\mathbf{a}_j}\mathop{<}^{\eqref{eq:emb_thm:inj_app:0}}\sum_{j=1}^k\frac{\delta}{2^k}=\left(1-\left(\frac{1}{2}\right)^k\right)\delta<\delta\,.
+    \end{align*}
+\end{proof}
+
+\newpage
+\begin{lemma}
+    Es existiert eine differenzierbare eigentliche Abbildung \({\mathcal{M}\to\mathbb{R}^n}\).
+\end{lemma}
+\begin{proof}
+    Man w\"ahlt einen guten Atlas, eine untergeordnete Zerlegung der Eins \({\theta_i}\) und setzt
+    \[\Theta:=\sum_{k=1}^{\infty}k\theta_k\,.\]
+    Es ist
+    \[\Theta^{-1}(K)\subseteq\Theta^{-1}\left(\overline{B_r}\right)\subset\bigcup_{k=1}^r\text{supp}\left(\theta_k\right)\,.\]
+    Aufgrund der Stetigkeit von \({\Theta}\) ist \({\Theta^{-1}(K)}\) abgeschlossen, und somit als abgeschlossene Teilmenge einer kompakten Menge in einem Hausdorff-Raum erneut kompakt. Dies ergibt eine eigentliche Abbildung \({\mathcal{M}\to\mathbb{R}}\), setzt man f\"ur eine Abbildung \({\mathcal{M}\to\mathbb{R}^n}\) nun \(\Theta\) als erste Komponente, erh\"alt man das gew\"unschte Ergebnis.
+\end{proof}
+
+Der Einbettungssatz ist jetzt eine einfache Folgerung der vorherigen Ergebnisse.
+
+\begin{corollary}[Whitneyscher Einbettungssatz]
+    Eine differenzierbare Mannigfaltigkeit \({\mathcal{M}^m}\) l\"asst f\"ur \({n>2m}\) eine Einbettung in den \({\mathbb{R}^n}\) zu.
+\end{corollary}
+\begin{proof}
+    Gem\"a\ss{} Lemma existiert eine eigentliche Abbildung \({F\colon\mathcal{M}\to\mathbb{R}^n}\) und nach Satz eine \({\delta}\)-Approximierung dieser mit einer injektiven Immersion und \({\delta>0}\). F\"ur eine kompakte Teilmenge \({K\subset\mathbb{R}^n}\) existiert stets ein Radius \({r>0}\) mit \({K\subseteq\overline{B_r}}\). Sei \({y\in G^{-1}\left(\overline{B_r}\right)}\), dann folgt
+    \[\norm{F(y)}=\norm{F(y)-G(y)+G(y)}\leq\norm{G(y)}+\norm{F(y)-G(y)}<r+\delta\,.\]
+    Da \({F}\) eigentlich ist, liegt \({y}\) nun in der kompakten Menge \({F^{-1}\left(\overline{B_{r+\delta}}\right)}\) also ist
+    \[G^{-1}\left(\overline{B_r}\right)\subset F^{-1}\left(\overline{B_{r+\delta}}\right)\,.\]
+    Da \({G}\) stetig ist, ist das Urbild abgeschlossen, und da \({M}\) ein Hausdorff-Raum ist, ist eine abgeschlossene Teilmenge einer kompakten Teilmenge erneut kompakt. Folglich ist auch \({G}\) eigentlich. Aufgrund von Satz \ref{def:diff_man:emb_inj_imm} ist eine eigentliche injektive Immersion eine Einbettung.
+\end{proof}
+
+Dieses Resultat erm\"oglicht es, von jeder differenzierbaren Mannigfaltigkeit als Untermannigfaltigkeit eines \({\mathbb{R}^n}\) zu denken. Sei \({\Phi\colon\mathcal{M}\to\mathbb{R}^n}\) eine Einbettung, so ist \({\mathcal{M}^{\prime}:=\Phi(\mathcal{M})}\) nat\"urlich erneut eine differenzierbare Mannigfaltigkeit mit den Karten \({\Phi\circ\alpha_i}\) (m\"oglicherweise mit ge\"anderten Bildbereich). Dann ist \({\mathcal{M}^{\prime}}\) aber aufgrund von Satz \ref{thm:sub_man:diff_sub_rn} eine Untermannigfaltigkeit des \({\mathbb{R}^n}\). 

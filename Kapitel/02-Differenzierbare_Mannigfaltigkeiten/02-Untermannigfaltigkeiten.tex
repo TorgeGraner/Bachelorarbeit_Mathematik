@@ -1,0 +1,60 @@
+\begin{definition}[\({\mathcal{C}^k-}\)Untermannigfaltigkeit des \({\mathbb{R}^n}\).]
+    \label{def:other_man:real_subman}
+    Eine Teilmenge \({\mathcal{M}\subseteq\mathbb{R}^n}\), sodass f\"ur jeden Punkt \({p\in\mathcal{M}}\) eine Umgebung \({p\in U\subseteq\mathbb{R}^n}\) und eine differenzierbare Funktion \({F\colon U\to\mathbb{R}^{n-m}}\) mit regul\"arem Wert \(0\) existiert, sodass \({F^{-1}(\{0\})=\mathcal{M}\cap U}\).
+\end{definition}
+
+Im Gegensatz zu der vorher genannten differenzierbaren Mannigfaltigkeit, wird bei der Untermannigfaltigkeit des \({\mathbb{R}^n}\) die differenzierbare Struktur des umliegenden Raumes vererbt. Demnach ist der Graph der Betragsfunktion zwar eine differenzierbare Mannigfaltigkeit, ist jedoch auch die Nullstellenmenge der Funktion \({f(\mathbf{x})=\mathbf{y}-\abs{\mathbf{x}}}\), die bei \({\mathbf{\mathbf{x}}=0}\) nicht differenzierbar ist. Wir betrachten noch den allgemeineren Begriff der Untermannigfaltigkeit.
+\begin{definition}[Untermannigfaltigkeit]
+    \label{def:other_man:subman}
+    Eine Teilmenge \({\mathcal{M}^m}\) einer topologischen Mannigfaltigkeit \({\mathcal{N}^n}\) sodass f\"ur alle \(p\in\mathcal{M}\) eine Karte \(\alpha\colon V\to U\) mit \(p\in U\) existiert, sodass
+    \[\mathcal{M}\cap U=\alpha\left(\left(\mathbb{R}^m\times\{0\}^{n-m}\right)\cap V\right)\,.\]
+\end{definition}
+Diese beiden Begriffe implizieren bereits einen Zusammenhang, dass dies tats\"achlich der Fall ist, zeigt der folgende Satz. Wie bereits zuvor angemerkt, ist hierbei der \(\mathbb{R}^n\) stets mit der differenzierbaren Standardstruktur versehen.
+    
+\begin{theorem}
+    Eine Menge \({\mathcal{M}\subseteq\mathbb{R}^n}\) ist genau dann eine Untermannigfaltigkeit des \({\mathbb{R}^n}\), wenn sie eine Untermannigfaltigkeit des \({\mathbb{R}^n}\) ist.
+\end{theorem}
+\begin{proof}
+    \subsubsection{Hinrichtung}
+    Sei \({\mathcal{M}}\) eine Untermannigfaltigkeit der Mannigfaltigkeit \({\mathbb{R}^n}\). Dann existiert ein Diffeomorphismus \({\alpha\colon V\to U}\), sodass
+    \[\alpha\left(\left(\mathbb{R}^m\times\{0\}^{n-m}\right)\cap V\right)=\mathcal{M}\cap U\]
+    gilt. F\"ur \({\left(\mathbf{x},\mathbf{y}\right)\in V\subseteq\mathbb{R}^m\times\mathbb{R}^{n-m}}\) ist nun \({\alpha\left(\mathbf{x},\mathbf{y}\right)\in\mathcal{M}}\) genau dann, wenn \({\mathbf{y}=0}\) ist. Wir betrachten die Abbildung
+    \[F\colon U\to\mathbb{R}^{n-m},\,\mathbf{z}\mapsto\left(\pi_{m+1}^n\circ\alpha^{-1}\right)(\mathbf{z})\]
+    wobei \({\pi_{m+1}^n}\) die Projektion auf die letzten \({n-m}\) Komponenten sei. Dann gilt
+    \[\begin{array}{lrl}
+        &F(\mathbf{z})&\hspace{-7pt}=0\\
+        \Leftrightarrow&\left(\pi_{m+1}^n\circ\alpha^{-1}\right)(\mathbf{z})&\hspace{-7pt}=0\\
+        \Leftrightarrow&\alpha^{-1}(\mathbf{z})&\hspace{-7pt}\in\left(\mathbb{R}^m\times\{0\}^{n-m}\right)\cap V\\
+        \Leftrightarrow&\mathbf{z}&\hspace{-7pt}\in\alpha\left(\left(\mathbb{R}^m\times\{0\}^{n-m}\right)\cap V\right)\\
+        \Leftrightarrow&\mathbf{z}&\hspace{-7pt}\in\mathcal{M}\cap U\,.
+    \end{array}\]
+    Da \({\alpha}\) ein Diffeomorphismus ist, ist \(F\) differenzierbar und im Ursprung regul\"ar.
+    
+    \subsubsection{R\"uckrichtung}
+    Sei \(\mathcal{M}\) eine Untermannigfaltigkeit des \({\mathbb{R}^n}\) und \({p\in\mathcal{M}}\). Dann gibt es eine differenzierbare Funktion \({F\colon W\to\mathbb{R}^{n-m}}\) mit \({\mathcal{M}\cap W=F^{-1}\left(\{0\}\right)}\), es gelte also \({F(p)=0}\). Wir schreiben \({p=(p_1,p_2)\in\mathbb{R}^m\times\mathbb{R}^{n-m}}\). Dann existieren Umgebungen \({p_1\in V_1\subseteq\mathbb{R}^m}\) und \({p_2\in U_2\subseteq\mathbb{R}^{n-m}}\), sodass \({V_1\times V_2\subseteq W}\). Gem\"a\ss{} dem Satz von der impliziten Funktion gibt es dann Teilumgebungen \({p_1\in V\subseteq V_1}\), \({p_2\in U\subseteq U_1}\) und eine differenzierbare Funktion \({h\colon V\to U}\) mit \({F(\mathbf{x},h(\mathbf{x}))=0}\) f\"ur alle \({\mathbf{x}\in V}\). Schlie\ss lich bildet
+    \[\alpha\colon V\to\alpha(V),\,p\mapsto\binom{p}{h(p)}\]
+    eine gew\"unschte Karte.
+\end{proof}
+
+Des Weiteren ist f\"ur eine Einbettung einer Mannigfaltigkeit in den \({\mathbb{R}^n}\) noch interessant, dass eine Mannigfaltigkeit, die eine Teilmenge des \({\mathbb{R}^n}\) ist, auch bereits eine Untermannigfaltigkeit des \({\mathbb{R}^n}\) ist. Die Beweisidee entstammt hierbei \cite{forster2012analysis2} §9 Satz 2.
+
+\begin{theorem}
+    \label{thm:sub_man:diff_sub_rn}
+    Eine differenzierbar Mannigfaltigkeit \({\mathcal{M}^m\subseteq\mathbb{R}^n}\) ist eine Untermannigfaltigkeit des \({\mathbb{R}^n}\).
+\end{theorem}
+\begin{proof}
+    Sei \({\alpha\colon V\to U}\) eine Karte von \({\mathcal{M}}\) mit \({V\subseteq\mathbb{R}^m}\) und \({U\subseteq\mathbb{R}^n}\). F\"ur festes \({\mathbf{x}}\) ist die Jacobi-Matrix von \({\alpha}\) eine invertierbare \({(m\times m)}\)-Matrix, nach einer Umordnung der Koordinaten sei also 
+    \[{\Tilde{\alpha}\colon\Tilde{V}\to\Tilde{U},\,\mathbf{x}\mapsto(\alpha_1(\mathbf{x}),\dots,\alpha_m(\mathbf{x}))}\]
+    ein Diffeomorphismus. Dann gilt
+    \[\alpha\circ\Tilde{\alpha}^{-1}(\mathbf{x})=\left(x_1,\dots,x_m,f_1(\mathbf{x}),\dots,f_{n-m}(\mathbf{x})\right)\,,\]
+    und mit \({f=(f_1,\dots,f_{n-m})}\) besitzt
+    \[F\colon\Tilde{U}\times\mathbb{R}^{n-m}\to\mathbb{R}^{n-m},\,(\mathbf{x},\mathbf{y})\mapsto\mathbf{y}-f(\mathbf{x})\]
+    die gew\"unschten Eigenschaften.
+\end{proof}
+
+\begin{corollary}
+    Eine Einbettung einer differenzierbaren Mannigfaltigkeit \({\mathcal{M}}\) in den \({\mathbb{R}^n}\) ist eine Untermannigfaltigkeit des \({\mathbb{R}^n}\).
+\end{corollary}
+\begin{proof}
+    Sei \({\Phi}\) eine derartige Einbettung und \({\{\alpha_i\colon V_i\to U_i\}}\) ein Atlas von \({\mathcal{M}}\). Dann bildet \({\{\Phi\circ\alpha_i\colon V_i\to\Phi(U_i)\}}\) einen Atlas von \({\Phi(\mathcal{M})\subseteq\mathbb{R}^n}\), die Aussage folgt aus Satz \ref{thm:sub_man:diff_sub_rn}.
+\end{proof}
